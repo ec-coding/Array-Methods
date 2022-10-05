@@ -1,23 +1,26 @@
 <h1>Array Methods Review</h1>
 
-- **.charAt()**
-  - Returns a new string consisting of the character located at the specified `index`. If the `index` is out of range, `charAt()` returns an empty string.
+- **.filter()**
+  - Creates a copy of a portion of a given array, filtered down to just the elements from the given array that pass the conditions set forth by the provided function.
 
   - Examples:
 ```
-const sentence = 'The quick brown fox jumps over the lazy dog.';
+const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
 
-const index = 4;
+const result = words.filter(word => word.length > 6);
 
-console.log(`The character at index ${index} is ${sentence.charAt(index)}`);
-// expected output: "The character at index 4 is q"
+console.log(result);
+// expected output: Array ["exuberant", "destruction", "present"]
 ```
 
 ```
-let text = "HELLO WORLD";
-let letter = text.charAt(text.length-1);
+const ages = [32, 33, 16, 40];
 
-document.getElementById("demo").innerHTML = letter;
+document.getElementById("demo").innerHTML = ages.filter(checkAdult);
 
-// expected output: "D"
+function checkAdult(age) {
+  return age >= 18;
+}
+
+// expected output: Array [32,33,40]
 ```

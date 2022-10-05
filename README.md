@@ -145,3 +145,91 @@ function checkAdult(age) {
 // expected output: true
 ```
 
+- **.every()**
+  - Checks if all elements in an array fulfill a certain condition.
+  - Returns `true` if the function returns `true` for all of the array elements.
+  - Returns `false` if even one of the array elements return `false`.
+  - Does not execute the function for empty array elements.
+  - Does not mutate the original array.
+  - Examples:
+```
+const isBelowThreshold = (currentValue) => currentValue < 40;
+
+const array1 = [1, 30, 39, 29, 10, 13];
+
+console.log(array1.every(isBelowThreshold));
+// expected output: true
+```
+
+```
+const ages = [32, 33, 16, 40];
+ages.every(checkAge);
+
+function checkAge(age) {
+  return age > 18;
+
+// expected output: false
+```
+
+- **.reduce()**
+  - Returns a single value after executing a reducer function on each element in an array.
+  - Does not execute the function for empty array elements.
+  - Does not mutate the original array.
+  - Examples:
+```
+const array1 = [1, 2, 3, 4];
+
+// 0 + 1 + 2 + 3 + 4
+const initialValue = 0;
+const sumWithInitial = array1.reduce(
+  (previousValue, currentValue) => previousValue + currentValue,
+  initialValue
+);
+
+console.log(sumWithInitial);
+// expected output: 10
+```
+
+```
+const numbers = [175, 50, 25];
+numbers.reduce(myFunc);
+
+function myFunc(total, num) {
+  return total - num;
+  
+// expected output: 100
+```
+
+- **.includes()**
+  - Returns `true` if an array contains a specified value.
+  - Returns `false` if the value is not detected.
+  - Is case sensitive
+  - Examples:
+```
+const array1 = [1, 2, 3];
+
+console.log(array1.includes(2));
+// expected output: true
+
+const pets = ['cat', 'dog', 'bat'];
+
+console.log(pets.includes('cat'));
+// expected output: true
+
+console.log(pets.includes('at'));
+// expected output: false
+```
+
+```
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.includes("Mango");
+
+// expected output: true
+```
+
+```
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.includes("Banana", 3);
+
+// expected output: false
+```
